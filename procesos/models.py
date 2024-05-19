@@ -30,7 +30,7 @@ class Orden(models.Model):
     proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
     emision = models.DateTimeField(auto_now_add=True)
     descripcion = models.TextField(max_length=250)
-    total = models.IntegerField(default=0)
+    articulos = models.ManyToManyField(Articulo, through='ArticuloUnidades', related_name='articulos_solicitados')
 
     def __str__(self):
         return self.descripcion
