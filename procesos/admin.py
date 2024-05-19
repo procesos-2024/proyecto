@@ -10,19 +10,21 @@ class SinProveedor(admin.SimpleListFilter):
     parameter_name = 'proveedor'
 
     def lookups(self, request, model_admin):
-        return [ (nombre.id, nombre) for nombre in Proveedor.objects.all() ] + [ ('sin_proveedor', 'Sin proveedor') ]
+        return [('sin_proveedor', 'sin proveedor')] + [(nombre.id, nombre) for nombre in Proveedor.objects.all()]
 
     def queryset(self, request, queryset):
         if self.value() == 'sin_proveedor':
             return queryset.filter(proveedor__isnull=True)
-        else:
+
+        if self.value() is not None:
             return queryset.filter(proveedor=self.value())
 
+        # si no se selecciona ninguna opcion
         return queryset
 
 
 class LowStockFilter(admin.SimpleListFilter):
-    title = 'stock bajo'
+    title = 'stock'
     parameter_name = 'minimo'
 
     def lookups(self, request, model_admin):
@@ -40,7 +42,7 @@ class LowStockFilter(admin.SimpleListFilter):
 class ArticuloAdmin(admin.ModelAdmin):
     search_fields = ['nombre', 'codigo', ]
     list_display = ('codigo', 'nombre', 'proveedor', 'unidades', 'minimo')
-    list_filter = (LowStockFilter, SinProveedor ,)
+    list_filter = (LowStockFilter, SinProveedor,)
 
 
 @admin.register(Proveedor)

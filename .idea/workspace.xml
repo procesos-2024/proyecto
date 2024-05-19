@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="ya actualiza unidades">
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="filtro proveedores agregado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716099518181</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="filtro proveedores agregado">
+      <option name="closed" value="true" />
+      <created>1716101457529</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716101457529</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +182,7 @@
     <MESSAGE value="nice" />
     <MESSAGE value="nice2" />
     <MESSAGE value="ya actualiza unidades" />
-    <option name="LAST_COMMIT_MESSAGE" value="ya actualiza unidades" />
+    <MESSAGE value="filtro proveedores agregado" />
+    <option name="LAST_COMMIT_MESSAGE" value="filtro proveedores agregado" />
   </component>
 </project>
