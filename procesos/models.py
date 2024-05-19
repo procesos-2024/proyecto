@@ -25,19 +25,8 @@ class Proveedor(models.Model):
         return self.nombre
 
 
-class Orden(models.Model):
-    emisor = models.ForeignKey(User, on_delete=models.CASCADE)
-    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
-    emision = models.DateTimeField(auto_now_add=True)
-    descripcion = models.TextField(max_length=250)
-    articulos = models.ManyToManyField(Articulo, through='ArticuloUnidades', related_name='articulos_solicitados')
-
-    def __str__(self):
-        return self.descripcion
-
-
 class ArticuloUnidades(models.Model):
-    orden = models.ForeignKey(Orden, on_delete=models.CASCADE)
+    orden = models.ForeignKey('Orden', on_delete=models.CASCADE)
     articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
     unidades = models.IntegerField(blank=False, null=False, default=0)
 
@@ -45,9 +34,13 @@ class ArticuloUnidades(models.Model):
         return f"#{self.orden.id} - ({self.unidades}) {self.articulo}"
 
 
-class ResepcionOrden(models.Model):
+class Orden(models.Model):
+    emisor = models.ForeignKey(User, on_delete=models.CASCADE)
     proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
-    receptor = models.ForeignKey(User, on_delete=models.CASCADE)
+    emision = models.DateTimeField(auto_now_add=True)
+    descripcion = models.TextField(max_length=250)
+    articulos = models.ManyToManyField(Articulo, through='ArticuloUnidades', related_name='articulos_solicitados')
+    recibido = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.receptor)
+        return self.descripcion

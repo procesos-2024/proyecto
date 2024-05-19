@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="nice">
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="nice2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716094830612</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="nice2">
+      <option name="closed" value="true" />
+      <created>1716097844254</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716097844254</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +165,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updated" />
     <MESSAGE value="nice" />
-    <option name="LAST_COMMIT_MESSAGE" value="nice" />
+    <MESSAGE value="nice2" />
+    <option name="LAST_COMMIT_MESSAGE" value="nice2" />
   </component>
 </project>
