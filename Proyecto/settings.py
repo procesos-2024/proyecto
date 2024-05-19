@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!ui)bz0(pu^6e5es^j+)+8bfpq=kc_syk#z_yh496cxjvigkes
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["10.32.213.157"]
+ALLOWED_HOSTS = ["10.32.213.157", "127.0.0.1"]
 
 
 # Application definition
@@ -142,3 +142,15 @@ MEDIA_ROOT = BASE_DIR / MEDIA_URL
 # admin personalizado
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
+
+
+# more settings
+# a list of settings that will be available by default, each item must contain "name", "type" and "value".
+# check the #types section to see all the supported settings types.
+EXTRA_SETTINGS_DEFAULTS = [
+    {
+        "name": "SETTING_NAME",
+        "type": "string",
+        "value": "Hello World",
+    },
+]
