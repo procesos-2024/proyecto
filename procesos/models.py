@@ -10,6 +10,7 @@ class Articulo(models.Model):
     nombre = models.CharField(blank=False, null=False, max_length=100)
     unidades = models.IntegerField(blank=False, null=False, default=0)
     minimo = models.IntegerField(blank=False, null=False, default=0)
+    proveedor = models.ForeignKey('Proveedor', on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.nombre
@@ -18,7 +19,6 @@ class Articulo(models.Model):
 class Proveedor(models.Model):
     nombre = models.CharField(blank=False, null=False, max_length=100)
     email = models.EmailField(max_length=254)
-    articulos = models.ManyToManyField(Articulo)
     activo = models.BooleanField(default=True)
 
     def __str__(self):
