@@ -6,7 +6,7 @@ from django.db import models
 
 
 class Articulo(models.Model):
-    codigo = models.CharField('Codigo', max_length=50, primary_key=True)
+    codigo = models.CharField('Codigo', max_length=50)
     nombre = models.CharField(blank=False, null=False, max_length=100)
     unidades = models.IntegerField(blank=False, null=False, default=0)
     minimo = models.IntegerField(blank=False, null=False, default=0)
@@ -41,6 +41,16 @@ class Orden(models.Model):
     descripcion = models.TextField(max_length=250)
     articulos = models.ManyToManyField(Articulo, through='ArticuloUnidades', related_name='articulos_solicitados')
     recibido = models.BooleanField(default=False)
+
+    def add_articulos(self, articulo, unidades):
+        articulo_orden, created = ArticuloUnidades.objects.get_or_create(orden=self, articulo=articulo)
+
+        if not created:
+            articulo_orden.unidades += unidades
+        else:
+            articulo_orden.unidades = unidades
+
+        articulo_orden.save()
 
     def __str__(self):
         return self.descripcion
