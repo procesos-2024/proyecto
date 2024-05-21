@@ -145,6 +145,16 @@ MEDIA_ROOT = BASE_DIR / MEDIA_URL
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_ROOT = 'static/'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / MEDIA_URL
+LOGIN_URL = 'login'
+
 
 # more settings
 # a list of settings that will be available by default, each item must contain "name", "type" and "value".
