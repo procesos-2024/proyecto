@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="actualizar stock">
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="logout actualizado">
+      <change afterPath="$PROJECT_DIR$/procesos/templates/register_proveedor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +111,7 @@
       <workItem from="1716266351687" duration="2275000" />
       <workItem from="1716321340512" duration="158000" />
       <workItem from="1716325639961" duration="793000" />
-      <workItem from="1716326866859" duration="3640000" />
+      <workItem from="1716326866859" duration="4325000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -245,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716330411740</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="logout actualizado">
+      <option name="closed" value="true" />
+      <created>1716330533994</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716330533994</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +285,7 @@
     <MESSAGE value="signals added" />
     <MESSAGE value="crear usuarios agregado" />
     <MESSAGE value="actualizar stock" />
-    <option name="LAST_COMMIT_MESSAGE" value="actualizar stock" />
+    <MESSAGE value="logout actualizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="logout actualizado" />
   </component>
 </project>

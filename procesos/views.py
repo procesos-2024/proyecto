@@ -1,14 +1,23 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import FormView
 
-from .forms import UserRegisterForm, VentaForm, VentaDetalleForm
+from .forms import UserRegisterForm, VentaForm, VentaDetalleForm, ProveedorForm
 from .models import Venta
 
 
 def index(request):
     return render(request, 'index.html')
 
+class RegisterProveedor(FormView):
+    template_name = 'register_proveedor.html'
+    success_url = reverse_lazy('index')
+    form_class = ProveedorForm
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 class RegisterView(FormView):
     template_name = 'register.html'
