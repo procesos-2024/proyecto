@@ -8,6 +8,15 @@ from Proyecto import settings
 from .models import *
 
 
+@receiver(post_save, sender=Venta)
+def update_stock_on_sell(sender, instance, **kwargs):
+    if instance.pagado:
+        for articulo in instance.detalles.all():
+            product = articulo.articulo
+            product.unidades -= articulo.cantidad
+            product.save()
+
+
 @receiver(post_save, sender=Orden)
 def update_stock_on_checkout(sender, instance, **kwargs):
 

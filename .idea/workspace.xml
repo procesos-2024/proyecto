@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="crear usuarios agregado">
-      <change afterPath="$PROJECT_DIR$/procesos/templates/agregar_articulo_a_venta.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procesos/templates/base_generic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procesos/templates/crear_venta.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procesos/templates/ver_venta.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/signals.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +103,8 @@
       <updated>1715723948525</updated>
       <workItem from="1715723949098" duration="3460000" />
       <workItem from="1716159080596" duration="92000" />
-      <workItem from="1716249814079" duration="6064000" />
+      <workItem from="1716249814079" duration="6264000" />
+      <workItem from="1716260798766" duration="1558000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -215,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716252505327</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="crear usuarios agregado">
+      <option name="closed" value="true" />
+      <created>1716260588825</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716260588825</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -107,5 +107,16 @@ class CartAdmin(admin.ModelAdmin):
     list_display = ('proveedor', 'emision', 'descripcion',)
     inlines = [CartItemInline]
 
+
 # class OrdenAdmin(admin.ModelAdmin):
 # filter_horizontal = ('articulos',)
+
+class VentaDetalleItemInline(admin.TabularInline):
+    autocomplete_fields = ('articulo',)
+    model = VentaDetalle
+    extra = 1
+
+
+@admin.register(Venta)
+class VentaAdmin(admin.ModelAdmin):
+    inlines = [VentaDetalleItemInline]
