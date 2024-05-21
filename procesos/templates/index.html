@@ -2,11 +2,7 @@
     {{ user.username }}
 </h1>
 
-<a href="{% url 'register' %}">Registrar Usuario</a>
-<br>
-<a href="{% url 'logout' %}">Cerrar sesión</a>
-<br>
-<a href="{% url 'login' %}">Iniciar sesión</a>
+<a href="{% url 'login' %}">Iniciar Sesión</a>
 <br>
 <a href="{% url 'crear_venta' %}">Nueva Venta</a>
 <br>
@@ -15,3 +11,16 @@ registrar proveedores
 hacer orden para proveedor
 <br>
 corte de dia
+
+<hr>
+
+<a href="{% url 'register' %}">Registrar Usuario</a>
+
+<br>
+
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button class="nav-link" type="submit">
+        Cerrar Sesión
+    </button>
+</form>
