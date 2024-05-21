@@ -10,9 +10,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-class
-
-
 class RegisterView(FormView):
     template_name = 'register.html'
     form_class = UserRegisterForm

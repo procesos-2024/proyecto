@@ -149,7 +149,7 @@ SILENCED_SYSTEM_CHECKS = ["security.W019"]
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_ROOT = 'static/'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / MEDIA_URL
