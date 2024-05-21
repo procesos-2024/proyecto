@@ -14,8 +14,7 @@ class UserRegisterForm(UserCreationForm):
             'username',
             'email',
             'password1',
-            'password2',
-            'is_staff'
+            'password2'
         ]
 
 

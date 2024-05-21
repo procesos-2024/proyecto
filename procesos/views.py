@@ -6,6 +6,13 @@ from .forms import UserRegisterForm, VentaForm, VentaDetalleForm
 from .models import Venta
 
 
+def index(request):
+    return render(request, 'index.html')
+
+
+class
+
+
 class RegisterView(FormView):
     template_name = 'register.html'
     form_class = UserRegisterForm
@@ -13,6 +20,7 @@ class RegisterView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
 
 @login_required
 def crear_venta(request):
@@ -27,6 +35,7 @@ def crear_venta(request):
         form = VentaForm()
     return render(request, 'crear_venta.html', {'form': form})
 
+
 @login_required
 def agregar_articulo_a_venta(request, venta_id):
     venta = get_object_or_404(Venta, id=venta_id)
@@ -40,6 +49,7 @@ def agregar_articulo_a_venta(request, venta_id):
     else:
         form = VentaDetalleForm()
     return render(request, 'agregar_articulo_a_venta.html', {'venta': venta, 'form': form})
+
 
 @login_required
 def ver_venta(request, venta_id):
