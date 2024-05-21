@@ -14,12 +14,11 @@ corte de dia
 
 <hr>
 
-<a href="{% url 'register' %}">Registrar Usuario</a>
-
-<br>
-
 <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
+
+    <a href="{% url 'register' %}">Registrar Usuario</a>
+
     <button class="nav-link" type="submit">
         Cerrar Sesión
     </button>
