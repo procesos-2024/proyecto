@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="ordenar articulos">
-      <change afterPath="$PROJECT_DIR$/procesos/templates/calcular_corte.html" afterDir="false" />
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="generar coretes agregado">
+      <change afterPath="$PROJECT_DIR$/procesos/templates/layouts/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <workItem from="1716321340512" duration="158000" />
       <workItem from="1716325639961" duration="793000" />
       <workItem from="1716326866859" duration="7823000" />
-      <workItem from="1716350912200" duration="8729000" />
+      <workItem from="1716350912200" duration="10094000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -282,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716360657448</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="generar coretes agregado">
+      <option name="closed" value="true" />
+      <created>1716362086638</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1716362086638</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +318,7 @@
     <MESSAGE value="logout actualizado" />
     <MESSAGE value="proveedor registro agregado" />
     <MESSAGE value="ordenar articulos" />
-    <option name="LAST_COMMIT_MESSAGE" value="ordenar articulos" />
+    <MESSAGE value="generar coretes agregado" />
+    <option name="LAST_COMMIT_MESSAGE" value="generar coretes agregado" />
   </component>
 </project>
