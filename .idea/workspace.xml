@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="logout actualizado">
-      <change afterPath="$PROJECT_DIR$/procesos/templates/register_proveedor.html" afterDir="false" />
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="proveedor registro agregado">
+      <change afterPath="$PROJECT_DIR$/procesos/templates/crear_orden.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procesos/templates/lista_proveedores.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/index.html" afterDir="false" />
@@ -111,7 +112,8 @@
       <workItem from="1716266351687" duration="2275000" />
       <workItem from="1716321340512" duration="158000" />
       <workItem from="1716325639961" duration="793000" />
-      <workItem from="1716326866859" duration="4325000" />
+      <workItem from="1716326866859" duration="7823000" />
+      <workItem from="1716350912200" duration="6429000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -257,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716330533994</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="proveedor registro agregado">
+      <option name="closed" value="true" />
+      <created>1716331240996</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1716331240996</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +296,7 @@
     <MESSAGE value="crear usuarios agregado" />
     <MESSAGE value="actualizar stock" />
     <MESSAGE value="logout actualizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="logout actualizado" />
+    <MESSAGE value="proveedor registro agregado" />
+    <option name="LAST_COMMIT_MESSAGE" value="proveedor registro agregado" />
   </component>
 </project>
