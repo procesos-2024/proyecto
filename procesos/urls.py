@@ -5,8 +5,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import RegisterView, index, RegisterProveedor, ProveedorListView, CrearOrdenView
-
+from .views import RegisterView, index, RegisterProveedor, ProveedorListView, CrearOrdenView, OrdenCreadaView
 
 urlpatterns = [
     path('', index, name='index'),

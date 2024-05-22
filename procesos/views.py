@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms import formset_factory, inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import FormView, ListView
+from django.views.generic import FormView, ListView, TemplateView
 
 from .forms import UserRegisterForm, VentaForm, VentaDetalleForm, ProveedorForm, OrdenForm, ArticuloUnidadesForm
 from .models import Venta, Proveedor, Orden, ArticuloUnidades
@@ -12,8 +12,11 @@ def index(request):
     return render(request, 'index.html')
 
 
+class OrdenCreadaView(TemplateView):
+    template_name = 'orden_creada.html'
+
 class CrearOrdenView(FormView):
-    template_name = 'ordenes/crear_orden.html'
+    template_name = 'crear_orden.html'
     form_class = OrdenForm
     success_url = reverse_lazy('orden_creada')  # Puedes definir una vista o URL para mostrar una confirmación
 
