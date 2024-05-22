@@ -5,7 +5,8 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import RegisterView, index, RegisterProveedor, ProveedorListView, CrearOrdenView, OrdenCreadaView
+from .views import RegisterView, index, RegisterProveedor, ProveedorListView, CrearOrdenView, OrdenCreadaView, \
+    CalcularCorteView
 
 urlpatterns = [
     path('', index, name='index'),
@@ -18,5 +19,6 @@ urlpatterns = [
     path('register_provedor', RegisterProveedor.as_view(), name='crear_provedor'),
     path('proveedores/', ProveedorListView.as_view(), name='listar_proveedores'),
     path('ordenar_articulos/', CrearOrdenView.as_view(), name='ordenar_articulos'),
-    path('orden_creada/', OrdenCreadaView.as_view(), name='orden_creada')
+    path('orden_creada/', OrdenCreadaView.as_view(), name='orden_creada'),
+    path('calcular_corte/', CalcularCorteView.as_view(), name='calcular_corte'),
 ]

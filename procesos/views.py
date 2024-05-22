@@ -1,16 +1,32 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 from django.forms import formset_factory, inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import FormView, ListView, TemplateView
 
-from .forms import UserRegisterForm, VentaForm, VentaDetalleForm, ProveedorForm, OrdenForm, ArticuloUnidadesForm
+from .forms import UserRegisterForm, VentaForm, VentaDetalleForm, ProveedorForm, OrdenForm, ArticuloUnidadesForm, \
+    CorteFechaForm
 from .models import Venta, Proveedor, Orden, ArticuloUnidades
 
 
 def index(request):
     return render(request, 'index.html')
 
+class CalcularCorteView(FormView):
+    template_name = 'calcular_corte.html'
+    form_class = CorteFechaForm
+    success_url = reverse_lazy('corte_calculado')
+
+    def form_valid(self, form):
+        fecha = form.cleaned_data['fecha']
+        ventas = Venta.objects.filter(fecha__date=fecha, pagado=True)
+        total_ventas = ventas.aggregate(total=Sum('total'))['total'] or 0.00
+
+        context = self.get_context_data(form=form)
+        context['ventas'] = ventas
+        context['total_ventas'] = total_ventas
+        return self.render_to_response(context)
 
 class OrdenCreadaView(TemplateView):
     template_name = 'orden_creada.html'

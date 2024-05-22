@@ -6,6 +6,12 @@ from .models import Venta, VentaDetalle, Proveedor, ArticuloUnidades
 from django import forms
 from .models import Proveedor, ArticuloUnidades, Orden
 
+from django import forms
+
+
+class CorteFechaForm(forms.Form):
+    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}))
+
 
 class OrdenForm(forms.ModelForm):
     class Meta:
@@ -15,6 +21,7 @@ class OrdenForm(forms.ModelForm):
             'proveedor': forms.Select(attrs={'class': 'form-control'}),
         }
 
+
 class ArticuloUnidadesForm(forms.ModelForm):
     class Meta:
         model = ArticuloUnidades
@@ -23,6 +30,7 @@ class ArticuloUnidadesForm(forms.ModelForm):
             'articulo': forms.Select(attrs={'class': 'form-control'}),
             'unidades': forms.NumberInput(attrs={'class': 'form-control', 'min': 1}),
         }
+
 
 class ProveedorForm(forms.ModelForm):
     class Meta:

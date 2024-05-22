@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Corte de Ventas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcular Corte de Ventas</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Calcular Corte</button>
+        </form>
+
+        {% if ventas %}
+            <h2>Resultados para {{ form.cleaned_data.fecha }}</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID Venta</th>
+                        <th>Vendedor</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for venta in ventas %}
+                    <tr>
+                        <td>{{ venta.id }}</td>
+                        <td>{{ venta.vendedor.username }}</td>
+                        <td>{{ venta.fecha }}</td>
+                        <td>{{ venta.total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h3>Total de Ventas: {{ total_ventas }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
