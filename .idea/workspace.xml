@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="base de plantillas agregado">
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="pantalla de login estilizada">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/templates/layouts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/layouts/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +112,7 @@
       <workItem from="1716406923078" duration="19000" />
       <workItem from="1716406951448" duration="4000" />
       <workItem from="1716406964297" duration="1553000" />
-      <workItem from="1716408723525" duration="2367000" />
+      <workItem from="1716408723525" duration="2391000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -301,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716363390635</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="pantalla de login estilizada">
+      <option name="closed" value="true" />
+      <created>1716411105014</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1716411105014</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +339,7 @@
     <MESSAGE value="ordenar articulos" />
     <MESSAGE value="generar coretes agregado" />
     <MESSAGE value="base de plantillas agregado" />
-    <option name="LAST_COMMIT_MESSAGE" value="base de plantillas agregado" />
+    <MESSAGE value="pantalla de login estilizada" />
+    <option name="LAST_COMMIT_MESSAGE" value="pantalla de login estilizada" />
   </component>
 </project>
