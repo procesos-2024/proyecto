@@ -1,19 +1,22 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum
-from django.forms import formset_factory, inlineformset_factory
+from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import FormView, ListView, TemplateView
+from django.views.generic import FormView, ListView, TemplateView, CreateView, DetailView
 
 from .forms import UserRegisterForm, VentaForm, VentaDetalleForm, ProveedorForm, OrdenForm, ArticuloUnidadesForm, \
     CorteFechaForm
-from .models import Venta, Proveedor, Orden, ArticuloUnidades
+from .models import Venta, Proveedor, Orden, ArticuloUnidades, VentaDetalle
 
 
+@login_required
 def index(request):
     return render(request, 'index.html')
 
-class CalcularCorteView(FormView):
+
+class CalcularCorteView(LoginRequiredMixin, FormView):
     template_name = 'calcular_corte.html'
     form_class = CorteFechaForm
     success_url = reverse_lazy('corte_calculado')
@@ -28,10 +31,12 @@ class CalcularCorteView(FormView):
         context['total_ventas'] = total_ventas
         return self.render_to_response(context)
 
-class OrdenCreadaView(TemplateView):
+
+class OrdenCreadaView(LoginRequiredMixin, TemplateView):
     template_name = 'orden_creada.html'
 
-class CrearOrdenView(FormView):
+
+class CrearOrdenView(LoginRequiredMixin, FormView):
     template_name = 'crear_orden.html'
     form_class = OrdenForm
     success_url = reverse_lazy('orden_creada')  # Puedes definir una vista o URL para mostrar una confirmación
@@ -60,16 +65,17 @@ class CrearOrdenView(FormView):
         else:
             return self.form_invalid(form)
 
+
 ArticuloUnidadesFormSet = inlineformset_factory(Orden, ArticuloUnidades, form=ArticuloUnidadesForm, extra=1)
 
 
-class ProveedorListView(ListView):
+class ProveedorListView(LoginRequiredMixin, ListView):
     model = Proveedor
     template_name = 'lista_proveedores.html'
     context_object_name = 'proveedores'
 
 
-class RegisterProveedor(FormView):
+class RegisterProveedor(LoginRequiredMixin, FormView):
     template_name = 'register_proveedor.html'
     success_url = reverse_lazy('index')
     form_class = ProveedorForm
@@ -79,7 +85,7 @@ class RegisterProveedor(FormView):
         return super().form_valid(form)
 
 
-class RegisterView(FormView):
+class RegisterView(LoginRequiredMixin, FormView):
     template_name = 'register.html'
     form_class = UserRegisterForm
 
@@ -88,46 +94,38 @@ class RegisterView(FormView):
         return super().form_valid(form)
 
 
-@login_required
-def crear_venta(request):
-    if request.method == 'POST':
-        form = VentaForm(request.POST)
-        if form.is_valid():
-            venta = form.save(commit=False)
-            venta.vendedor = request.user
-            venta.save()
-            return redirect('agregar_articulo_a_venta', venta_id=venta.id)
-    else:
-        form = VentaForm()
-    return render(request, 'crear_venta.html', {'form': form})
+class CrearVentaView(LoginRequiredMixin, CreateView):
+    model = Venta
+    form_class = VentaForm
+    template_name = 'crear_venta.html'
+
+    def form_valid(self, form):
+        form.instance.vendedor = self.request.user
+        self.object = form.save()
+        return redirect('agregar_articulo_a_venta', venta_id=self.object.id)
 
 
-@login_required
-def agregar_articulo_a_venta(request, venta_id):
-    venta = get_object_or_404(Venta, id=venta_id)
+class AgregarArticuloAVentaView(LoginRequiredMixin, CreateView):
+    model = VentaDetalle
+    form_class = VentaDetalleForm
+    template_name = 'agregar_articulo_a_venta.html'
 
-    if request.method == 'POST':
-        form = VentaDetalleForm(request.POST)
-        if form.is_valid():
-            detalle = form.save(commit=False)
-            detalle.venta = venta
-            detalle.save()
-            return redirect('ver_venta', venta_id=venta.id)
-    else:
-        form = VentaDetalleForm()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['venta'] = get_object_or_404(Venta, id=self.kwargs['venta_id'])
+        return context
 
-    return render(
-        request,
-        'agregar_articulo_a_venta.html',
-        {'venta': venta, 'form': form}
-    )
+    def form_valid(self, form):
+        venta = get_object_or_404(Venta, id=self.kwargs['venta_id'])
+        form.instance.venta = venta
+        self.object = form.save()
+        return redirect('ver_venta', venta_id=venta.id)
 
 
-@login_required
-def ver_venta(request, venta_id):
-    venta = get_object_or_404(Venta, id=venta_id)
-    return render(
-        request,
-        'ver_venta.html',
-        {'venta': venta}
-    )
+class VerVentaView(LoginRequiredMixin, DetailView):
+    model = Venta
+    template_name = 'ver_venta.html'
+    context_object_name = 'venta'
+
+    def get_object(self):
+        return get_object_or_404(Venta, id=self.kwargs['venta_id'])
