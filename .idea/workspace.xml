@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="mejor pantalla de venta">
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="subtotal agregado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/templates/agregar_articulo_a_venta.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/agregar_articulo_a_venta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/templates/calcular_corte.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/calcular_corte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +117,7 @@
       <workItem from="1716406951448" duration="4000" />
       <workItem from="1716406964297" duration="1553000" />
       <workItem from="1716408723525" duration="3693000" />
-      <workItem from="1716486626729" duration="11171000" />
+      <workItem from="1716486626729" duration="12209000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -397,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716497487132</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="subtotal agregado">
+      <option name="closed" value="true" />
+      <created>1716497834710</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1716497834710</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,7 +425,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated" />
     <MESSAGE value="nice" />
     <MESSAGE value="nice2" />
     <MESSAGE value="ya actualiza unidades" />
@@ -440,6 +449,7 @@
     <MESSAGE value="articulos con precion unitario" />
     <MESSAGE value="eliminar articulos de la venta" />
     <MESSAGE value="mejor pantalla de venta" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejor pantalla de venta" />
+    <MESSAGE value="subtotal agregado" />
+    <option name="LAST_COMMIT_MESSAGE" value="subtotal agregado" />
   </component>
 </project>

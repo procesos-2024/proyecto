@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.utils.timezone import now
 from django.views import View
 from django.views.generic import FormView, ListView, CreateView
 
@@ -29,6 +30,15 @@ class CalcularCorteView(LoginRequiredMixin, FormView):
     form_class = CorteFechaForm
     success_url = reverse_lazy('corte_calculado')
 
+    def get_initial(self):
+        initial = super().get_initial()
+        fecha_param = self.request.GET.get('fecha')
+        if fecha_param:
+            initial['fecha'] = fecha_param
+        else:
+            initial['fecha'] = now().date()  # Establece la fecha actual como predeterminada
+        return initial
+
     def form_valid(self, form):
         fecha = form.cleaned_data['fecha']
         ventas = Venta.objects.filter(fecha__date=fecha, pagado=True)
@@ -47,7 +57,7 @@ class ProveedorListView(LoginRequiredMixin, ListView):
 
 
 class RegisterProveedor(LoginRequiredMixin, FormView):
-    template_name = 'register_proveedor.html'
+    template_name = 'register_proveedor .html'
     success_url = reverse_lazy('index')
     form_class = ProveedorForm
 
@@ -95,6 +105,7 @@ class AgregarArticuloAVentaView(LoginRequiredMixin, CreateView):
 class FinalizarVentaView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         venta_id = request.session.get('venta_id')
+
         if venta_id:
             venta = get_object_or_404(Venta, id=venta_id)
             # Aquí puedes marcar la venta como pagada o realizar cualquier otra lógica de finalización
@@ -102,4 +113,7 @@ class FinalizarVentaView(LoginRequiredMixin, View):
             venta.save()
             # Elimina la venta de la sesión
             del request.session['venta_id']
-        return redirect('index')  # Redirige a la lista de ventas o a donde sea necesario
+
+        # Redirige a la vista de calcular corte con la fecha actual
+        fecha_hoy = now().date()
+        return redirect(reverse('calcular_corte') + f'?fecha={fecha_hoy}')

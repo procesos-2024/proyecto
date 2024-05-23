@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 
 from .models import Venta, VentaDetalle, Proveedor, ArticuloUnidades
 from django import forms
@@ -10,7 +11,10 @@ from django import forms
 
 
 class CorteFechaForm(forms.Form):
-    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}))
+    fecha = forms.DateField(
+        initial=now,
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'})
+    )
 
 
 class OrdenForm(forms.ModelForm):
