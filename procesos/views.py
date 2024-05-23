@@ -13,7 +13,7 @@ from .models import Venta, Proveedor, Orden, ArticuloUnidades, VentaDetalle
 
 @login_required
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'menu/index.html')
 
 
 class CalcularCorteView(LoginRequiredMixin, FormView):

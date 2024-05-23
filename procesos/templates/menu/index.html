@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Bienvenido {{ user }}
+                    </div>
+                    <div class="card-body">
+
+                        <div class="list-group">
+                            <div class="list-group">
+                                {% include "menu/menu_item.html" with url="crear_venta" title="Nueva Venta" description="Cree una nueva venta." %}
+                                {% include "menu/menu_item.html" with url="crear_provedor" title="Registrar Proveedores" description="Registre nuevos proveedores." %}
+                                {% include "menu/menu_item.html" with url="listar_proveedores" title="Lista de Proveedores" description="Vea la lista de proveedores registrados." %}
+                                {% include "menu/menu_item.html" with url="ordenar_articulos" title="Hacer Orden para Proveedor" description="Haga una nueva orden para un proveedor." %}
+                                {% include "menu/menu_item.html" with url="calcular_corte" title="Corte de Día" description="Calcule el corte del día." %}
+
+
+
+                            </div>
+                        </div>
+                        <hr>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            {% comment %}
+                            <a href="{% url 'register' %}" class="btn btn-primary w-100 mb-2">Registrar Usuario</a>
+                            {% endcomment %}
+                            <button class="btn btn-danger w-100" type="submit">Cerrar Sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
