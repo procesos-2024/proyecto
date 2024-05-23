@@ -3,42 +3,52 @@
 
 {% block content %}
 
-    <div class="container col-12 col-md-4 col-md mt-4 mt-md-5 mt-5">
-        <div class="align-items-center justify-content-center h-100">
-            <div class="">
-                <div class="card-body">
-                    <h5 class="card-title text-center mt-3 mb-4">Bienvenido</h5>
-                    <form method="post">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Login
+                    </div>
+                    <div class="card-body">
 
-                        {% csrf_token %}
+                        <form class="list-group" method="post">
 
-                        <div class="form-floating mb-3">
-                            {% render_field form.username class="form-control" id="floatingUsername" placeholder="Usuario" %}
-                            <label for="floatingUsername">Usuario</label>
-                        </div>
+                            {% csrf_token %}
 
-                        <div class="form-floating mb-4">
-                            {% render_field form.password class="form-control" id="floatingPassword" placeholder="Contraseña" type="password" %}
-                            <label for="floatingPassword">Contraseña</label>
-                        </div>
+                            {% if form.errors %}
+                                <div class="alert alert-danger mb-3 small" role="alert">
+                                    El nombre de usuario o la contraseña que escribió son incorrectos
+                                </div>
+                            {% endif %}
 
-                        {% if form.errors %}
-                            <div class="alert alert-danger mb-4 small" role="alert">
-                                El nombre de usuario o la contraseña que escribió son incorrectos
+                            <div class="form-floating mb-3">
+                                {% render_field form.username class="form-control" id="floatingUsername" placeholder="Usuario" %}
+                                <label for="floatingUsername">Usuario</label>
                             </div>
-                        {% endif %}
+
+                            <div class="form-floating">
+                                {% render_field form.password class="form-control" id="floatingPassword" placeholder="Contraseña" type="password" %}
+                                <label for="floatingPassword">Contraseña</label>
+                            </div>
+
+                            <hr>
+
+                            <button class="btn btn-primary w-100" type="submit">Iniciar sesión</button>
+
+                            <div class="pt-2 text-center">
+                                Crear <a class="small " href="{% url 'register' %}">cuenta de prueba</a>
+                            </div>
+
+                        </form>
 
 
-                        <button type="submit" class="w-100 btn btn-primary btn-lg mt-3">Iniciar sesión</button>
-
-                        <div class="sign-up pt-4 text-center">
-                            Crear una <a class="small " href="{% url 'register' %}">Cuenta</a>
-                        </div>
-
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
 {% endblock %}
