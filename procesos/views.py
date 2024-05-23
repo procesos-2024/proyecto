@@ -4,9 +4,10 @@ from django.db.models import Sum
 from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import FormView, ListView, TemplateView, CreateView, DetailView
 
-from .forms import UserRegisterForm, VentaForm, VentaDetalleForm, ProveedorForm, OrdenForm, ArticuloUnidadesForm, \
+from .forms import UserRegisterForm, VentaDetalleForm, ProveedorForm, OrdenForm, ArticuloUnidadesForm, \
     CorteFechaForm
 from .models import Venta, Proveedor, Orden, ArticuloUnidades, VentaDetalle
 
@@ -94,17 +95,6 @@ class RegisterView(FormView):
         return super().form_valid(form)
 
 
-class CrearVentaView(LoginRequiredMixin, CreateView):
-    model = Venta
-    form_class = VentaForm
-    template_name = 'crear_venta.html'
-
-    def form_valid(self, form):
-        form.instance.vendedor = self.request.user
-        self.object = form.save()
-        return redirect('agregar_articulo_a_venta', venta_id=self.object.id)
-
-
 class AgregarArticuloAVentaView(LoginRequiredMixin, CreateView):
     model = VentaDetalle
     form_class = VentaDetalleForm
@@ -112,14 +102,37 @@ class AgregarArticuloAVentaView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['venta'] = get_object_or_404(Venta, id=self.kwargs['venta_id'])
+        # Verifica si hay una venta en la sesión actual
+        venta_id = self.request.session.get('venta_id')
+        if venta_id:
+            venta = get_object_or_404(Venta, id=venta_id)
+        else:
+            # Crea una nueva venta si no existe
+            venta = Venta.objects.create(vendedor=self.request.user)
+            self.request.session['venta_id'] = venta.id
+
+        context['venta'] = venta
         return context
 
     def form_valid(self, form):
-        venta = get_object_or_404(Venta, id=self.kwargs['venta_id'])
+        venta_id = self.request.session.get('venta_id')
+        venta = get_object_or_404(Venta, id=venta_id)
         form.instance.venta = venta
         self.object = form.save()
         return redirect('ver_venta', venta_id=venta.id)
+
+
+class FinalizarVentaView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        venta_id = request.session.get('venta_id')
+        if venta_id:
+            venta = get_object_or_404(Venta, id=venta_id)
+            # Aquí puedes marcar la venta como pagada o realizar cualquier otra lógica de finalización
+            venta.pagado = True
+            venta.save()
+            # Elimina la venta de la sesión
+            del request.session['venta_id']
+        return redirect('index')  # Redirige a la lista de ventas o a donde sea necesario
 
 
 class VerVentaView(LoginRequiredMixin, DetailView):

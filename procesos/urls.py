@@ -2,7 +2,7 @@ from django.contrib.auth.views import LogoutView, LoginView
 from django.urls import path
 
 from .views import RegisterView, index, RegisterProveedor, ProveedorListView, CrearOrdenView, OrdenCreadaView, \
-    CalcularCorteView, CrearVentaView, AgregarArticuloAVentaView, VerVentaView
+    CalcularCorteView, AgregarArticuloAVentaView, VerVentaView, FinalizarVentaView
 
 urlpatterns = [
     path('', index, name='index'),
@@ -10,7 +10,10 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
 
-    path('crear_venta/', CrearVentaView.as_view(), name='crear_venta'),
+    path('agregar-articulo/', AgregarArticuloAVentaView.as_view(), name='agregar_articulo_a_venta'),
+    path('finalizar-venta/', FinalizarVentaView.as_view(), name='finalizar_venta'),
+
+    #path('crear_venta/', CrearVentaView.as_view(), name='crear_venta'),
     path('agregar_articulo_a_venta/<int:venta_id>/', AgregarArticuloAVentaView.as_view(), name='agregar_articulo_a_venta'),
     path('ver_venta/<int:venta_id>/', VerVentaView.as_view(), name='ver_venta'),
 

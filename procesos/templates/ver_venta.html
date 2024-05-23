@@ -13,4 +13,5 @@
     {% endfor %}
   </ul>
   <a href="{% url 'agregar_articulo_a_venta' venta.id %}">Agregar más artículos</a>
+    <a href="{% url 'finalizar_venta' %}">Confirmar venta</a>
 {% endblock %}
