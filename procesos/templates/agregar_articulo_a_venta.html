@@ -17,12 +17,21 @@
                         <div class="card-body">
                             <form method="post">
                                 {% csrf_token %}
+
+                                <div class="mb-4">
+                                    <h5>Subtotal: ${{ venta.total }}</h5>
+                                </div>
+
                                 <div class="mb-3">
                                     {{ form.as_p }}
                                 </div>
-                                <button type="submit" class="btn btn-primary">Agregar Articulo</button>
-                                <a href="{% url 'finalizar_venta' %}" class="btn btn-success ms-2">Confirmar venta</a>
-                                <a href="{% url 'index' %}" class="btn btn-secondary ms-2">Volver al menu</a>
+
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary">Agregar Articulo</button>
+                                    <a href="{% url 'finalizar_venta' %}" class="btn btn-success ms-2">Confirmar
+                                        venta</a>
+                                    <a href="{% url 'index' %}" class="btn btn-secondary ms-2">Volver al menu</a>
+                                </div>
                             </form>
                         </div>
 
