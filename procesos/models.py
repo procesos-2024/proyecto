@@ -19,11 +19,10 @@ class VentaDetalle(models.Model):
     venta = models.ForeignKey(Venta, on_delete=models.CASCADE, related_name='detalles')
     articulo = models.ForeignKey('Articulo', on_delete=models.CASCADE)
     cantidad = models.IntegerField(blank=False, null=False, default=0)
-    precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
     subtotal = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def save(self, *args, **kwargs):
-        self.subtotal = self.cantidad * self.precio_unitario
+        self.subtotal = self.cantidad * self.articulo.precio_unitario
         super().save(*args, **kwargs)
         self.venta.total += self.subtotal
         self.venta.save()
@@ -36,6 +35,7 @@ class Articulo(models.Model):
     codigo = models.CharField('Codigo', max_length=50)
     nombre = models.CharField(blank=False, null=False, max_length=100)
     unidades = models.IntegerField(blank=False, null=False, default=0)
+    precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
     minimo = models.IntegerField(blank=False, null=False, default=0)
     proveedor = models.ForeignKey('Proveedor', on_delete=models.SET_NULL, blank=True, null=True)
 

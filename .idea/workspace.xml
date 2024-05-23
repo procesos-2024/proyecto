@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="integrando crear articulos">
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="ocultar admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/templates/menu/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/menu/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +116,7 @@
       <workItem from="1716406951448" duration="4000" />
       <workItem from="1716406964297" duration="1553000" />
       <workItem from="1716408723525" duration="3693000" />
-      <workItem from="1716486626729" duration="8949000" />
+      <workItem from="1716486626729" duration="9711000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -367,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716494758463</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="ocultar admin">
+      <option name="closed" value="true" />
+      <created>1716495652220</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716495652220</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,6 +413,7 @@
     <MESSAGE value="menu actualizado" />
     <MESSAGE value="login actualizado" />
     <MESSAGE value="integrando crear articulos" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrando crear articulos" />
+    <MESSAGE value="ocultar admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="ocultar admin" />
   </component>
 </project>
