@@ -1,27 +1,60 @@
-<!-- agregar_articulo_a_venta.html -->
-{% extends "base_generic.html" %}
-{% block content %}
-    <h2>Agregar Articulo a Venta #{{ venta.id }}</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Agregar Articulo</button>
-        <a href="{% url 'finalizar_venta' %}">Confirmar venta</a>
-    </form>
+{% extends 'layouts/base.html' %}
+{% load widget_tweaks %}
 
-    <ul>
-        {% for detalle in venta.detalles.all %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ detalle.cantidad }} x {{ detalle.articulo.nombre }} @ {{ detalle.precio_unitario }}
-                = {{ detalle.subtotal }}
-                <form method="post" action="{% url 'eliminar_articulo_de_venta' detalle.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
+
+{% block content %}
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Agregar Articulo a Venta #{{ venta.id }}
+                    </div>
+                    <div class="card-body">
+
+
+                        <div class="card-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    {{ form.as_p }}
+                                </div>
+                                <button type="submit" class="btn btn-primary">Agregar Articulo</button>
+                                <a href="{% url 'finalizar_venta' %}" class="btn btn-success ms-2">Confirmar venta</a>
+                                <a href="{% url 'index' %}" class="btn btn-secondary ms-2">Volver al menu</a>
+                            </form>
+                        </div>
+
+                        <hr>
+
+                        <ul class="list-group">
+                            {% for detalle in venta.detalles.all %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        {{ detalle.cantidad }} x {{ detalle.articulo.nombre }}
+                                        @ {{ detalle.precio_unitario }} = {{ detalle.subtotal }}
+                                    </div>
+                                    <form method="post" action="{% url 'eliminar_articulo_de_venta' detalle.id %}"
+                                          class="mb-0">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
 {% endblock %}
+
+
+
