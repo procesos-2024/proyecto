@@ -15,6 +15,7 @@ from .models import Venta, Proveedor, VentaDetalle
 def index(request):
     return render(request, 'menu/index.html')
 
+
 class EliminarArticuloDeVentaView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         venta_detalle_id = kwargs['pk']
@@ -24,6 +25,7 @@ class EliminarArticuloDeVentaView(LoginRequiredMixin, View):
         venta.save()
         venta_detalle.delete()
         return redirect('agregar_articulo_a_venta')
+
 
 class CalcularCorteView(LoginRequiredMixin, FormView):
     template_name = 'calcular_corte.html'
@@ -57,7 +59,7 @@ class ProveedorListView(LoginRequiredMixin, ListView):
 
 
 class RegisterProveedor(LoginRequiredMixin, FormView):
-    template_name = 'register_proveedor .html'
+    template_name = 'register_proveedor.html'
     success_url = reverse_lazy('index')
     form_class = ProveedorForm
 

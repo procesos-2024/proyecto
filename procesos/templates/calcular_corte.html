@@ -2,35 +2,35 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="mb-0">Calcular Corte de Ventas</h1>
-                </div>
-                <div class="card-body">
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            {{ form.as_p }}
-                        </div>
-                        <button type="submit" class="btn btn-primary">Calcular Corte</button>
-                    </form>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Calcular Corte de Ventas
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ form.as_p }}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calcular Corte</button>
+                        </form>
 
-                    {% if ventas %}
-                        <div class="mt-4">
-                            <h2>Resultados para {{ form.cleaned_data.fecha }}</h2>
-                            <table class="table table-striped mt-3">
-                                <thead>
+                        {% if ventas %}
+                            <div class="mt-4">
+                                <h2>Resultados para {{ form.cleaned_data.fecha }}</h2>
+                                <table class="table table-striped mt-3">
+                                    <thead>
                                     <tr>
                                         <th>ID Venta</th>
                                         <th>Vendedor</th>
                                         <th>Fecha</th>
                                         <th>Total</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     {% for venta in ventas %}
                                         <tr>
                                             <td>{{ venta.id }}</td>
@@ -39,14 +39,14 @@
                                             <td>${{ venta.total }}</td>
                                         </tr>
                                     {% endfor %}
-                                </tbody>
-                            </table>
-                            <h3 class="mt-3">Total de Ventas: ${{ total_ventas }}</h3>
-                        </div>
-                    {% endif %}
+                                    </tbody>
+                                </table>
+                                <h3 class="mt-3">Total de Ventas: ${{ total_ventas }}</h3>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
