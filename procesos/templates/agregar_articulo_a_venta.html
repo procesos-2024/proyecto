@@ -1,11 +1,21 @@
 <!-- agregar_articulo_a_venta.html -->
 {% extends "base_generic.html" %}
 {% block content %}
-  <h2>Agregar Articulo a Venta #{{ venta.id }}</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Agregar Articulo</button>
-  </form>
-  <a href="{% url 'ver_venta' venta.id %}">Finalizar Venta</a>
+    <h2>Agregar Articulo a Venta #{{ venta.id }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar Articulo</button>
+        <a href="{% url 'finalizar_venta' %}">Confirmar venta</a>
+    </form>
+
+    <ul>
+        {% for detalle in venta.detalles.all %}
+            <li>{{ detalle.cantidad }} x {{ detalle.articulo.nombre }} @ {{ detalle.precio_unitario }}
+                = {{ detalle.subtotal }}</li>
+        {% endfor %}
+    </ul>
+
+
+
 {% endblock %}

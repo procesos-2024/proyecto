@@ -119,7 +119,7 @@ class AgregarArticuloAVentaView(LoginRequiredMixin, CreateView):
         venta = get_object_or_404(Venta, id=venta_id)
         form.instance.venta = venta
         self.object = form.save()
-        return redirect('ver_venta', venta_id=venta.id)
+        return redirect('agregar_articulo_a_venta', venta_id=venta.id)
 
 
 class FinalizarVentaView(LoginRequiredMixin, View):
