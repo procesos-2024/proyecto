@@ -11,8 +11,14 @@
 
     <ul>
         {% for detalle in venta.detalles.all %}
-            <li>{{ detalle.cantidad }} x {{ detalle.articulo.nombre }} @ {{ detalle.precio_unitario }}
-                = {{ detalle.subtotal }}</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ detalle.cantidad }} x {{ detalle.articulo.nombre }} @ {{ detalle.precio_unitario }}
+                = {{ detalle.subtotal }}
+                <form method="post" action="{% url 'eliminar_articulo_de_venta' detalle.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                </form>
+            </li>
         {% endfor %}
     </ul>
 

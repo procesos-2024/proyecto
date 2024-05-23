@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="ocultar admin">
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="articulos con precion unitario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/templates/agregar_articulo_a_venta.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/agregar_articulo_a_venta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +118,7 @@
       <workItem from="1716406951448" duration="4000" />
       <workItem from="1716406964297" duration="1553000" />
       <workItem from="1716408723525" duration="3693000" />
-      <workItem from="1716486626729" duration="9711000" />
+      <workItem from="1716486626729" duration="10098000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -374,7 +376,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716495652220</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="articulos con precion unitario">
+      <option name="closed" value="true" />
+      <created>1716496367807</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716496367807</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,6 +424,7 @@
     <MESSAGE value="login actualizado" />
     <MESSAGE value="integrando crear articulos" />
     <MESSAGE value="ocultar admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="ocultar admin" />
+    <MESSAGE value="articulos con precion unitario" />
+    <option name="LAST_COMMIT_MESSAGE" value="articulos con precion unitario" />
   </component>
 </project>

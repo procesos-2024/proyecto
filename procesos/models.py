@@ -28,7 +28,7 @@ class VentaDetalle(models.Model):
         self.venta.save()
 
     def __str__(self):
-        return f"{self.cantidad} x {self.articulo.nombre} @ {self.precio_unitario}"
+        return f"{self.cantidad} x {self.articulo.nombre} @ {self.articulo.precio_unitario}"
 
 
 class Articulo(models.Model):

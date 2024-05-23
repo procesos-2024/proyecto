@@ -14,6 +14,15 @@ from .models import Venta, Proveedor, VentaDetalle
 def index(request):
     return render(request, 'menu/index.html')
 
+class EliminarArticuloDeVentaView(LoginRequiredMixin, View):
+    def post(self, request, *args, **kwargs):
+        venta_detalle_id = kwargs['pk']
+        venta_detalle = get_object_or_404(VentaDetalle, id=venta_detalle_id)
+        venta = venta_detalle.venta
+        venta.total -= venta_detalle.subtotal
+        venta.save()
+        venta_detalle.delete()
+        return redirect('agregar_articulo_a_venta')
 
 class CalcularCorteView(LoginRequiredMixin, FormView):
     template_name = 'calcular_corte.html'
