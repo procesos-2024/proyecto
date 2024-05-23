@@ -1,15 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum
-from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import FormView, ListView, TemplateView, CreateView, DetailView
+from django.views.generic import FormView, ListView, CreateView
 
-from .forms import UserRegisterForm, VentaDetalleForm, ProveedorForm, OrdenForm, ArticuloUnidadesForm, \
-    CorteFechaForm
-from .models import Venta, Proveedor, Orden, ArticuloUnidades, VentaDetalle
+from .forms import UserRegisterForm, VentaDetalleForm, ProveedorForm, CorteFechaForm
+from .models import Venta, Proveedor, VentaDetalle
 
 
 @login_required
@@ -31,43 +29,6 @@ class CalcularCorteView(LoginRequiredMixin, FormView):
         context['ventas'] = ventas
         context['total_ventas'] = total_ventas
         return self.render_to_response(context)
-
-
-class OrdenCreadaView(LoginRequiredMixin, TemplateView):
-    template_name = 'orden_creada.html'
-
-
-class CrearOrdenView(LoginRequiredMixin, FormView):
-    template_name = 'crear_orden.html'
-    form_class = OrdenForm
-    success_url = reverse_lazy('orden_creada')  # Puedes definir una vista o URL para mostrar una confirmación
-
-    def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-        if self.request.POST:
-            data['articulos_formset'] = ArticuloUnidadesFormSet(self.request.POST)
-        else:
-            data['articulos_formset'] = ArticuloUnidadesFormSet()
-        return data
-
-    def form_valid(self, form):
-        context = self.get_context_data()
-        articulos_formset = context['articulos_formset']
-        if articulos_formset.is_valid():
-            orden = form.save(commit=False)
-            orden.emisor = self.request.user
-            orden.descripcion = 'Nueva orden generada automáticamente'
-            orden.save()
-
-            articulos_formset.instance = orden
-            articulos_formset.save()
-
-            return super().form_valid(form)
-        else:
-            return self.form_invalid(form)
-
-
-ArticuloUnidadesFormSet = inlineformset_factory(Orden, ArticuloUnidades, form=ArticuloUnidadesForm, extra=1)
 
 
 class ProveedorListView(LoginRequiredMixin, ListView):
@@ -133,12 +94,3 @@ class FinalizarVentaView(LoginRequiredMixin, View):
             # Elimina la venta de la sesión
             del request.session['venta_id']
         return redirect('index')  # Redirige a la lista de ventas o a donde sea necesario
-
-
-class VerVentaView(LoginRequiredMixin, DetailView):
-    model = Venta
-    template_name = 'ver_venta.html'
-    context_object_name = 'venta'
-
-    def get_object(self):
-        return get_object_or_404(Venta, id=self.kwargs['venta_id'])
