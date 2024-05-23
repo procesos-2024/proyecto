@@ -85,7 +85,7 @@ class RegisterProveedor(LoginRequiredMixin, FormView):
         return super().form_valid(form)
 
 
-class RegisterView(LoginRequiredMixin, FormView):
+class RegisterView(FormView):
     template_name = 'register.html'
     form_class = UserRegisterForm
 
