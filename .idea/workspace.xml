@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="ajustes minimos">
-      <change afterPath="$PROJECT_DIR$/procesos/templates/articulos_bajo_stock.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procesos/templates/crear_orden.html" afterDir="false" />
+    <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="se agregan articulos a las ordenes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +118,7 @@
       <workItem from="1716486626729" duration="12694000" />
       <workItem from="1716523426198" duration="617000" />
       <workItem from="1716570360913" duration="43000" />
-      <workItem from="1716682196177" duration="14714000" />
+      <workItem from="1716682196177" duration="16549000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />
@@ -444,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716689542815</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="se agregan articulos a las ordenes">
+      <option name="closed" value="true" />
+      <created>1716704459851</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1716704459851</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="filtro proveedores agregado" />
     <MESSAGE value="separa por proveedores" />
     <MESSAGE value="import export agregado" />
     <MESSAGE value="signals added" />
@@ -487,6 +490,7 @@
     <MESSAGE value="mostrar articulos agregados en el corte" />
     <MESSAGE value="lista_proveedores.html" />
     <MESSAGE value="ajustes minimos" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajustes minimos" />
+    <MESSAGE value="se agregan articulos a las ordenes" />
+    <option name="LAST_COMMIT_MESSAGE" value="se agregan articulos a las ordenes" />
   </component>
 </project>

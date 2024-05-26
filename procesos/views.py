@@ -37,15 +37,17 @@ class ArticulosBajoStockView(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        print("hola")
         proveedor_id = self.request.session.get('proveedor_id')
         proveedor = get_object_or_404(Proveedor, id=proveedor_id)
+
         form.instance.proveedor = proveedor
         form.instance.emisor = self.request.user
         self.object = form.save()
 
-        return redirect('articulos_bajo_stock', proveedor_id=proveedor_id)
+        for a in Articulo.objects.filter(proveedor=proveedor, unidades__lte=F('minimo')):
+            self.object.add_articulos(a, a.minimo)
 
+        return redirect('articulos_bajo_stock', proveedor_id=proveedor_id)
 
 
 class EliminarArticuloDeVentaView(LoginRequiredMixin, View):
