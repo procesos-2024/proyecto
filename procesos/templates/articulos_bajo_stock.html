@@ -1,18 +1,42 @@
+{% extends 'layouts/base.html' %}
+{% load widget_tweaks %}
+
+
 {% block content %}
-    <h1>Artículos con bajo stock de {{ proveedor.nombre }}</h1>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Ordenar</button>
-    </form>
 
-    <ul>
-        {% for articulo in articulos %}
-            <li>{{ articulo.nombre }} - Unidades: {{ articulo.unidades }} (Mínimo: {{ articulo.minimo }}) -
-                Precio: {{ articulo.precio_unitario }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Solicitar articulos a {{ proveedor.nombre }} ({{ proveedor.email }})
+                    </div>
+                    <div class="card-body">
 
-    <a href="{% url 'listar_proveedores' %}">Volver a la lista de proveedores</a>
+                        <label for="">Artículos solicitados</label>
+
+                        <ul class="list-group mt-1 mb-3">
+                            {% for articulo in articulos %}
+                                <li class="list-group-item">{{ articulo.nombre }} - Unidades: {{ articulo.unidades }}
+                                    (Mínimo: {{ articulo.minimo }}) -
+                                    Precio: {{ articulo.precio_unitario }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary">Ordenar</button>
+                            <a class="btn btn-secondary ms-2" href="{% url 'listar_proveedores' %}">Volver a la lista de
+                                proveedores</a>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
