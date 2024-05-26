@@ -5,15 +5,47 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.utils.timezone import now
 from django.views import View
-from django.views.generic import FormView, CreateView
+from django.views.generic import FormView, CreateView, ListView
 
-from .forms import UserRegisterForm, VentaDetalleForm, ProveedorForm, CorteFechaForm
+from .forms import UserRegisterForm, VentaDetalleForm, ProveedorForm, CorteFechaForm, OrdenForm
 from .models import Venta, VentaDetalle, Proveedor, Articulo
 
 
 @login_required
 def index(request):
     return render(request, 'menu/index.html')
+
+
+class ArticulosBajoStockView(LoginRequiredMixin, CreateView):
+    model = Articulo
+    template_name = 'articulos_bajo_stock.html'
+    context_object_name = 'articulos'
+    form_class = OrdenForm
+    success_url = reverse_lazy('articulos_bajo_stock')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        proveedor_id = self.kwargs.get('proveedor_id')
+        proveedor = get_object_or_404(Proveedor, id=proveedor_id)
+        queryset = Articulo.objects.filter(proveedor=proveedor, unidades__lte=F('minimo'))
+
+        context['proveedor'] = get_object_or_404(Proveedor, id=self.kwargs.get('proveedor_id'))
+        context['form'] = self.get_form()
+        context['articulos'] = queryset
+        self.request.session['proveedor_id'] = proveedor_id
+
+        return context
+
+    def form_valid(self, form):
+        print("hola")
+        proveedor_id = self.request.session.get('proveedor_id')
+        proveedor = get_object_or_404(Proveedor, id=proveedor_id)
+        form.instance.proveedor = proveedor
+        form.instance.emisor = self.request.user
+        self.object = form.save()
+
+        return redirect('articulos_bajo_stock', proveedor_id=proveedor_id)
+
 
 
 class EliminarArticuloDeVentaView(LoginRequiredMixin, View):

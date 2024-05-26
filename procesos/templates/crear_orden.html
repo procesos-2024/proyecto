@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+    <h1>Crear Orden</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear Orden</button>
+    </form>
+{% endblock %}

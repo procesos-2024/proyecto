@@ -20,10 +20,7 @@ class CorteFechaForm(forms.Form):
 class OrdenForm(forms.ModelForm):
     class Meta:
         model = Orden
-        fields = ['proveedor']
-        widgets = {
-            'proveedor': forms.Select(attrs={'class': 'form-control'}),
-        }
+        fields = ['descripcion']
 
 
 class ArticuloUnidadesForm(forms.ModelForm):

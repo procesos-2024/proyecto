@@ -2,6 +2,7 @@ from django.contrib.auth.views import LogoutView, LoginView
 from django.urls import path
 
 from .views import AgregarArticuloAVentaView
+from .views import ArticulosBajoStockView
 from .views import CalcularCorteView
 from .views import EliminarArticuloDeVentaView
 from .views import FinalizarVentaView
@@ -22,5 +23,6 @@ urlpatterns = [
     path('register_provedor', RegisterProveedor.as_view(), name='crear_provedor'),
     path('proveedores/', ProveedorListView.as_view(), name='listar_proveedores'),
     path('calcular_corte/', CalcularCorteView.as_view(), name='calcular_corte'),
-    path('eliminar-articulo/<int:pk>/', EliminarArticuloDeVentaView.as_view(), name='eliminar_articulo_de_venta')
+    path('eliminar-articulo/<int:pk>/', EliminarArticuloDeVentaView.as_view(), name='eliminar_articulo_de_venta'),
+    path('proveedor/<int:proveedor_id>/bajo_stock/', ArticulosBajoStockView.as_view(), name='articulos_bajo_stock'),
 ]
