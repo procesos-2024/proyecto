@@ -37,7 +37,11 @@
                                         {{ item.proveedor.id }}
                                     </td>
                                     <td>
-                                        {{ item.proveedor.nombre }}
+
+                                        <a href="{% url 'articulos_bajo_stock' item.proveedor.id %}">
+                                            {{ item.proveedor.nombre }}
+                                        </a>
+
                                     </td>
                                     <td>
                                         {% if item.bajo_stock %}
