@@ -1,8 +1,14 @@
 from django.contrib.auth.views import LogoutView, LoginView
 from django.urls import path
 
-from .views import RegisterView, index, RegisterProveedor, ProveedorListView, \
-    CalcularCorteView, AgregarArticuloAVentaView, FinalizarVentaView, EliminarArticuloDeVentaView
+from .views import AgregarArticuloAVentaView
+from .views import CalcularCorteView
+from .views import EliminarArticuloDeVentaView
+from .views import FinalizarVentaView
+from .views import ProveedorListView
+from .views import RegisterProveedor
+from .views import RegisterView
+from .views import index
 
 urlpatterns = [
     path('', index, name='index'),
@@ -16,5 +22,5 @@ urlpatterns = [
     path('register_provedor', RegisterProveedor.as_view(), name='crear_provedor'),
     path('proveedores/', ProveedorListView.as_view(), name='listar_proveedores'),
     path('calcular_corte/', CalcularCorteView.as_view(), name='calcular_corte'),
-    path('eliminar-articulo/<int:pk>/', EliminarArticuloDeVentaView.as_view(), name='eliminar_articulo_de_venta'),
+    path('eliminar-articulo/<int:pk>/', EliminarArticuloDeVentaView.as_view(), name='eliminar_articulo_de_venta')
 ]

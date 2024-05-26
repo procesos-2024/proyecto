@@ -8,7 +8,7 @@ from django.views import View
 from django.views.generic import FormView, CreateView
 
 from .forms import UserRegisterForm, VentaDetalleForm, ProveedorForm, CorteFechaForm
-from .models import Venta, VentaDetalle
+from .models import Venta, VentaDetalle, Proveedor, Articulo
 
 
 @login_required
@@ -52,18 +52,19 @@ class CalcularCorteView(LoginRequiredMixin, FormView):
         return self.render_to_response(context)
 
 
-from django.views.generic import ListView
-from .models import Proveedor, Articulo
-
-
-class ProveedorListView(LoginRequiredMixin, ListView):
+class ProveedorListView(LoginRequiredMixin, FormView):
     model = Proveedor
     template_name = 'lista_proveedores.html'
     context_object_name = 'proveedores'
+    form_class = ProveedorForm
+    success_url = '/proveedores/'
+
+    def get_queryset(self):
+        return Proveedor.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        proveedores = context['proveedores']
+        proveedores = self.get_queryset()
         proveedores_info = []
 
         for proveedor in proveedores:
@@ -74,7 +75,23 @@ class ProveedorListView(LoginRequiredMixin, ListView):
             })
 
         context['proveedores_info'] = proveedores_info
+        context['form'] = self.get_form()
         return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            form.save()
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        return self.render_to_response(self.get_context_data(form=form))
 
 
 class RegisterProveedor(LoginRequiredMixin, FormView):
