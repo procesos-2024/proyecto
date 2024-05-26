@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a4dd24-20f5-42be-9e94-2d9cfbe6d845" name="Changes" comment="mostrar articulos agregados en el corte">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/templates/calcular_corte.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/calcular_corte.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesos/templates/register_proveedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/register_proveedor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/templates/crear_orden.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/templates/lista_proveedores.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/lista_proveedores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/templates/menu/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/templates/menu/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesos/templates/orden_creada.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/procesos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesos/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,6 +120,9 @@
       <workItem from="1716406964297" duration="1553000" />
       <workItem from="1716408723525" duration="3693000" />
       <workItem from="1716486626729" duration="12694000" />
+      <workItem from="1716523426198" duration="617000" />
+      <workItem from="1716570360913" duration="43000" />
+      <workItem from="1716682196177" duration="2486000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <option name="closed" value="true" />

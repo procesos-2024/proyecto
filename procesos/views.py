@@ -1,14 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Sum
+from django.db.models import Sum, F
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.utils.timezone import now
 from django.views import View
-from django.views.generic import FormView, ListView, CreateView
+from django.views.generic import FormView, CreateView
 
 from .forms import UserRegisterForm, VentaDetalleForm, ProveedorForm, CorteFechaForm
-from .models import Venta, Proveedor, VentaDetalle
+from .models import Venta, VentaDetalle
 
 
 @login_required
@@ -52,10 +52,29 @@ class CalcularCorteView(LoginRequiredMixin, FormView):
         return self.render_to_response(context)
 
 
+from django.views.generic import ListView
+from .models import Proveedor, Articulo
+
+
 class ProveedorListView(LoginRequiredMixin, ListView):
     model = Proveedor
     template_name = 'lista_proveedores.html'
     context_object_name = 'proveedores'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        proveedores = context['proveedores']
+        proveedores_info = []
+
+        for proveedor in proveedores:
+            bajo_stock = Articulo.objects.filter(proveedor=proveedor, unidades__lte=F('minimo')).exists()
+            proveedores_info.append({
+                'proveedor': proveedor,
+                'bajo_stock': bajo_stock
+            })
+
+        context['proveedores_info'] = proveedores_info
+        return context
 
 
 class RegisterProveedor(LoginRequiredMixin, FormView):

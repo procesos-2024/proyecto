@@ -14,13 +14,17 @@
                         <div class="list-group">
                             <div class="list-group">
                                 {% include "menu/menu_item.html" with url="agregar-articulo" title="Nueva Venta" description="Cree una nueva venta." %}
-                                {% include "menu/menu_item.html" with url="register_provedor" title="Registrar Proveedores" description="Registre nuevos proveedores." %}
                                 {% include "menu/menu_item.html" with url="proveedores" title="Lista de Proveedores" description="Vea la lista de proveedores registrados." %}
+
+                                {% comment %}
+                                {% include "menu/menu_item.html" with url="register_provedor" title="Registrar Proveedores" description="Registre nuevos proveedores." %}
                                 {% include "menu/menu_item.html" with url="ordenar_articulos" title="Hacer Orden para Proveedor" description="Haga una nueva orden para un proveedor." %}
+                                {% endcomment %}
+
                                 {% include "menu/menu_item.html" with url="calcular_corte" title="Corte de Día" description="Calcule el corte del día." %}
 
                                 {% if user.is_staff %}
-                                {% include "menu/menu_item.html" with url="admin" title="Administrador" description="Pantalla de gestion del sistema." %}
+                                    {% include "menu/menu_item.html" with url="admin" title="Administrador" description="Pantalla de gestion del sistema." %}
                                 {% endif %}
                             </div>
                         </div>
