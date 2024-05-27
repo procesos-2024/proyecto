@@ -7,7 +7,7 @@ left to right direction
 !define primary_key(x) <b>x</b>
 !define foreign_key(x) <i>x</i>
 
-class Venta {
+entity Venta {
     primary_key(id): Integer
     vendedor: foreign_key(User)
     fecha: DateTime
@@ -15,7 +15,7 @@ class Venta {
     pagado: Boolean
 }
 
-class VentaDetalle {
+entity VentaDetalle {
     primary_key(id): Integer
     venta: foreign_key(Venta)
     articulo: foreign_key(Articulo)
@@ -23,7 +23,7 @@ class VentaDetalle {
     subtotal: Decimal
 }
 
-class Articulo {
+entity Articulo {
     primary_key(id): Integer
     codigo: CharField
     nombre: CharField
@@ -33,21 +33,21 @@ class Articulo {
     proveedor: foreign_key(Proveedor)
 }
 
-class Proveedor {
+entity Proveedor {
     primary_key(id): Integer
     nombre: CharField
     email: EmailField
     activo: Boolean
 }
 
-class ArticuloUnidades {
+entity ArticuloUnidades {
     primary_key(id): Integer
     orden: foreign_key(Orden)
     articulo: foreign_key(Articulo)
     unidades: Integer
 }
 
-class Orden {
+entity Orden {
     primary_key(id): Integer
     emisor: foreign_key(User)
     proveedor: foreign_key(Proveedor)
