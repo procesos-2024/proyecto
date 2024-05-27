@@ -1,0 +1,65 @@
+@startuml
+scale 1
+
+!theme plain
+left to right direction
+
+!define primary_key(x) <b>x</b>
+!define foreign_key(x) <i>x</i>
+
+class Venta {
+    primary_key(id): Integer
+    vendedor: foreign_key(User)
+    fecha: DateTime
+    total: Decimal
+    pagado: Boolean
+}
+
+class VentaDetalle {
+    primary_key(id): Integer
+    venta: foreign_key(Venta)
+    articulo: foreign_key(Articulo)
+    cantidad: Integer
+    subtotal: Decimal
+}
+
+class Articulo {
+    primary_key(id): Integer
+    codigo: CharField
+    nombre: CharField
+    unidades: Integer
+    precio_unitario: Decimal
+    minimo: Integer
+    proveedor: foreign_key(Proveedor)
+}
+
+class Proveedor {
+    primary_key(id): Integer
+    nombre: CharField
+    email: EmailField
+    activo: Boolean
+}
+
+class ArticuloUnidades {
+    primary_key(id): Integer
+    orden: foreign_key(Orden)
+    articulo: foreign_key(Articulo)
+    unidades: Integer
+}
+
+class Orden {
+    primary_key(id): Integer
+    emisor: foreign_key(User)
+    proveedor: foreign_key(Proveedor)
+    emision: DateTime
+    descripcion: TextField
+    recibido: Boolean
+}
+
+VentaDetalle }-- Venta
+VentaDetalle }-- Articulo
+Articulo }-- Proveedor
+ArticuloUnidades }-- Orden
+ArticuloUnidades }-- Articulo
+Orden }-- Proveedor
+@enduml
