@@ -16,6 +16,7 @@
                                 {{ form.as_p }}
                             </div>
                             <button type="submit" class="btn btn-primary">Calcular Corte</button>
+                            <a href="{% url 'index' %}" class="btn btn-secondary ms-2">Volver al menu</a>   
                         </form>
 
                         {% if ventas %}
@@ -39,9 +40,16 @@
                                             <td>${{ venta.total }}</td>
                                         </tr>
                                     {% endfor %}
+
                                     </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="3">Total de Ventas:</td>
+
+                                        <td class="fw-bold">${{ total_ventas }}</td>
+                                    </tr>
+                                    </tfoot>
                                 </table>
-                                <h3 class="mt-3">Total de Ventas: ${{ total_ventas }}</h3>
                             </div>
                         {% endif %}
                     </div>
